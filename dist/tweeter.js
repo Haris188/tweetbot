@@ -20,12 +20,7 @@ const path_1 = __importDefault(require("path"));
 const readFile = util.promisify(fs_1.default.readFile);
 const writeFile = util.promisify(fs_1.default.writeFile);
 require('dotenv').config();
-const user = process.env.DB_USER;
-const host = process.env.DB_HOST;
-const port = process.env.DB_PORT;
-const database = process.env.DB_NAME;
-const password = process.env.DB_PASSWORD;
-const connectionString = process.env.DB_URI;
+const connectionString = process.env.DATABASE_URL;
 const pool = new pg_1.Pool({
     connectionString: connectionString,
     max: 20,
