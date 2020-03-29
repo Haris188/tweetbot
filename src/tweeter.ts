@@ -8,7 +8,7 @@ const writeFile = util.promisify(fs.writeFile);
 
 require('dotenv').config();
 
-const connectionString = process.env.DB_URI;
+const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({
     connectionString: connectionString,
     max:20,
