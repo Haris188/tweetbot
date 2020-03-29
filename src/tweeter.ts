@@ -47,12 +47,13 @@ class Twitter{
     }
 
     private async getStatusFromDb(){
-      const quoteId = await this.getQuoteIdFromFile();
-      const query = this.createFetchQuery(quoteId);
+      //const quoteId = await this.getQuoteIdFromFile();
+      const query = this.createFetchQuery();
       let result;
       const res = await pool.query(query);
       if(res){
         result = this.extractData(res);
+        this.incrementQuoteIdInFile(result.data.id);
       }
       else{
         result = {success: false, data: 'pg.query returns null'}
@@ -74,21 +75,22 @@ class Twitter{
 
     private async getQuoteIdFromFile(){
       const filepath = path.join(__dirname, 'quote_id.txt')
-      const quoteId = await readFile(filepath, 'utf8');
-      await this.incrementQuoteIdInFile(quoteId);
+      const quoteId = await pool.query()
       return parseInt(quoteId);
     }
 
     private async incrementQuoteIdInFile(quoteId){
       const data = parseInt(quoteId) + 1;
-      const filepath = path.join(__dirname, 'quote_id.txt');
-      const result = await writeFile(filepath, `${data}`, {flag: 'w'});
-      console.log(result)
+      // const filepath = path.join(__dirname, 'quote_id.txt');
+      // const result = await writeFile(filepath, `${data}`, {flag: 'w'});
+      // console.log(result)
+      const query = `UPDATE quote_id SET quote_id = ${data} WHERE quote_id = ${quoteId}`
+      await pool.query(query)
       return data;
     }
 
-    private createFetchQuery(quoteId){
-      return `SELECT * FROM quotes WHERE id = ${quoteId}`
+    private createFetchQuery(){
+      return `select * from quote_id INNER JOIN quotes ON (quote_id.quote_id = quotes.id);`
     }
 
     public async testGetStatusFromDb(){
