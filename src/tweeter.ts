@@ -18,10 +18,10 @@ const pool = new Pool({
 
 class Twitter{
     private T = new Twit({
-        consumer_key:         'SiU4UL12MKLUQ5f0JsXPAXGqm',
-        consumer_secret:      'X5Ha51beCYdWtJCB0Rw67bLC7IKShRs861Kwf0NcWfr9C9B2AB',
-        access_token:         '1243353261232607244-XvzTJTgWTJlOd7DTLWXzRvfPzMnnwd',
-        access_token_secret:  '9UIJ9yk95T2SlP9Y9ljua9I71c9PRm6KRF4GP7GkdaVds',
+        consumer_key:         process.env.TWITTER_API_KEY,
+        consumer_secret:      process.env.TWITTER_API_SECRET,
+        access_token:         process.env.TWITTER_API_TOKEN,
+        access_token_secret:  process.env.TWITTER_API_TOKEN_SECRET,
         timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
         strictSSL:            true,     // optional - requires SSL certificates to be valid.
       })
