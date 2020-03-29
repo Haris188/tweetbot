@@ -8,9 +8,4 @@ app.get('/tweet/tweet', (req, res) => {
   Tweeter.tweet();
   res.send('done')
 });
-app.listen(port, err => {
-  if (err) {
-    return console.error(err);
-  }
-  return console.log(`server is listening on ${port}`);
-});
+app.listen(port || 3000)
