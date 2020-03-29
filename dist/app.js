@@ -8,7 +8,7 @@ const tweeter_1 = __importDefault(require("./tweeter"));
 require('dotenv').config();
 const app = express_1.default();
 const port = process.env.PORT;
-app.get('/', (req, res) => {
+app.get('/tweet/tweet', (req, res) => {
     tweeter_1.default.tweet();
     res.send('done');
 });

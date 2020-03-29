@@ -8,12 +8,7 @@ const writeFile = util.promisify(fs.writeFile);
 
 require('dotenv').config();
 
-const user = process.env.DB_USER;
-const host = process.env.DB_HOST;
-const port = process.env.DB_PORT;
-const database = process.env.DB_NAME;
-const password = process.env.DB_PASSWORD;
-const connectionString = `postgressql://${user}:${password}@${host}:${port}/${database}`
+const connectionString = process.env.DB_URI;
 const pool = new Pool({
     connectionString: connectionString,
     max:20,

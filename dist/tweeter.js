@@ -25,7 +25,7 @@ const host = process.env.DB_HOST;
 const port = process.env.DB_PORT;
 const database = process.env.DB_NAME;
 const password = process.env.DB_PASSWORD;
-const connectionString = `postgressql://${user}:${password}@${host}:${port}/${database}`;
+const connectionString = process.env.DB_URI;
 const pool = new pg_1.Pool({
     connectionString: connectionString,
     max: 20,
