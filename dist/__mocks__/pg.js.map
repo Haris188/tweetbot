@@ -1,0 +1,1 @@
+{"version":3,"file":"pg.js","sourceRoot":"","sources":["../../src/__mocks__/pg.ts"],"names":[],"mappings":";;AAEA,MAAa,IAAI;IACb,YAAoB,MAAM;QAAN,WAAM,GAAN,MAAM,CAAA;IAAE,CAAC;IAEtB,KAAK,CAAC,KAAK;QACd,OAAO,CAAC,GAAG,CAAC,MAAM,CAAC,CAAA;QACnB,OAAO,OAAO,CAAA;IAClB,CAAC;CACJ;AAPD,oBAOC;AAEY,QAAA,IAAI,GAAG,YAAY,CAAC"}
