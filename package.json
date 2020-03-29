@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/app.js",
-    "test": "jest"
+    "test": "jest",
+    "build-ts": "tsc",
+    "postinstall": "npm run build-ts",
+    "start": "npm run serve",
+    "serve": "node dist/server.js",
+    "watch-node": "nodemon dist/app.js",
+    "watch-ts": "tsc -w"
   },
   "author": "",
   "license": "ISC",

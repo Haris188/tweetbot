@@ -3,9 +3,9 @@ import Tweeter from './tweeter'
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.get('/tweet/tweet', (req, res) => {
   Tweeter.tweet();
   res.send('done')
 });
-app.listen(port || 3000)
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
