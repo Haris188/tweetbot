@@ -28,10 +28,10 @@ class Twitter{
       
     public async tweet(){
         const status = await this.getStatusFromDb();
-        console.log(status)
+        const hashtags = `#inspirational #motivational #life #positive #success #leadership #quotes`;
         if(status.success){
           const text = this.removeSlashes(status.data.text);
-          this.T.post('statuses/update', { status: `"${text}\n\n#motivation" - ${status.data.author}` }, function(err, data, response) {
+          this.T.post('statuses/update', { status: `"${text}" - ${status.data.author}\n\n${hashtags}` }, function(err, data, response) {
               if(data){
                 console.log('updated')
               }
