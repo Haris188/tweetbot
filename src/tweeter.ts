@@ -31,7 +31,7 @@ class Twitter{
         console.log(status)
         if(status.success){
           const text = this.removeSlashes(status.data.text);
-          this.T.post('statuses/update', { status: `"${text}" - ${status.data.author}` }, function(err, data, response) {
+          this.T.post('statuses/update', { status: `"${text}\n\n#motivation" - ${status.data.author}` }, function(err, data, response) {
               if(data){
                 console.log('updated')
               }
